@@ -26,7 +26,7 @@
                             dc:creator <https://github.com/dsavchenko>;
                             dc:creator <https://github.com/burnout87>;
                             foaf:logo <https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png>;
-                            owl:versionIRI "4c1f238" .
+                            owl:versionIRI "0.1.1" .
 
 <http://odahub.io/ontology#LightCurve> rdfs:subClassOf <http://www.ivoa.net/rdf/product-type#timeseries> .
 
@@ -54,7 +54,7 @@
                              <http://purl.org/dc/elements/1.1/title> "MMODA Astrophysical Workflow Ontology" ,
                                                                      "MMODA Astrophysical Workflows and Data Products" ;
                              <http://purl.org/vocab/vann/preferredNamespaceUri> "http://odahub.io/ontology" ;
-                             owl:versionIRI "4c1f238" ;
+                             owl:versionIRI "0.1.1" ;
                              <http://xmlns.com/foaf/0.1/logo> <https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png> .
 
 #################################################################
