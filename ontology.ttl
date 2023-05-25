@@ -256,7 +256,8 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :value ;
                            owl:allValuesFrom xsd:boolean, xsd:bool
-                         ] .
+                         ]  ;
+       rdfs:sameAs xsd:boolean, xsd:bool .
 
 
 ###  http://odahub.io/ontology#DataProduct
@@ -357,7 +358,9 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :value ;
                          owl:allValuesFrom xsd:float
-                       ] .
+                       ] ;
+       rdfs:sameAs xsd:float .
+        
 
 
 ###  http://odahub.io/ontology#Frequency
@@ -459,7 +462,8 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :value ;
                            owl:allValuesFrom xsd:integer, xsd:int
-                         ] .
+                         ] ;
+         rdfs:sameAs xsd:integer, xsd:int .
 
 
 ###  http://odahub.io/ontology#JEMXEnergy
