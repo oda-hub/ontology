@@ -255,9 +255,9 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
          rdfs:subClassOf :WorkflowParameter ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :value ;
-                           owl:allValuesFrom xsd:boolean, xsd:bool
+                           owl:allValuesFrom xsd:boolean
                          ]  ;
-       rdfs:sameAs xsd:boolean, xsd:bool .
+       rdfs:equivalentClass xsd:boolean .
 
 
 ###  http://odahub.io/ontology#DataProduct
@@ -359,7 +359,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
                          owl:onProperty :value ;
                          owl:allValuesFrom xsd:float
                        ] ;
-       rdfs:sameAs xsd:float .
+       rdfs:equivalentClass xsd:float .
         
 
 
@@ -461,9 +461,9 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
          rdfs:subClassOf :NumericParameter ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :value ;
-                           owl:allValuesFrom xsd:integer, xsd:int
+                           owl:allValuesFrom xsd:integer
                          ] ;
-         rdfs:sameAs xsd:integer, xsd:int .
+         rdfs:equivalentClass xsd:integer .
 
 
 ###  http://odahub.io/ontology#JEMXEnergy
