@@ -1,61 +1,33 @@
 @prefix : <http://odahub.io/ontology#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix fno: <https://w3id.org/function/spec/> .
-@base <http://odahub.io/ontology#> .
-
-<http://odahub.io/ontology> rdf:type owl:Ontology ;
-                            dc:title "MMODA Astrophysical Workflow Ontology" ;                        
-                            vann:preferredNamespaceUri "http://odahub.io/ontology" ;
-                            dc:description """Astrophysical Workflows, and corresponding input-output data types (Data Products, Input Parameters, etc) 
-                                used in MMODA project (https://www.astro.unige.ch/mmoda/, https://odahub.io/)"""; 
-                            dc:abstract """IVOA kindly provides various data and object types, but very little is availble about workflow types. 
-                                It is possible to combine function types (e.g. https://fno.io) with data types. 
-                                In this ontology we define supporting types, our own versions of some of the generic types, 
-                                and anything else needed to descrie Astrophysical Analysis Workflows.
-                                Please refer to https://odahub.io/docs/guide-ontology/ for instructions on how to contribute.""";
-                            dc:source "https://github.com/volodymyrss/hugo-odahub.git";
-                            dc:creator <https://github.com/volodymyrss>;
-                            dc:creator <https://github.com/andriineronov>;
-                            dc:creator <https://github.com/dsavchenko>;
-                            dc:creator <https://github.com/burnout87>;
-                            foaf:logo <https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png>;
-                            owl:versionIRI "0.1.1" .
-
-<http://odahub.io/ontology#LightCurve> rdfs:subClassOf <http://www.ivoa.net/rdf/product-type#timeseries> .
-
-@prefix : <http://odahub.io/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @base <http://odahub.io/ontology> .
 
 <http://odahub.io/ontology> rdf:type owl:Ontology ;
-                             <http://purl.org/dc/elements/1.1/abstract> """IVOA kindly provides various data and object types, but very little is availble about workflow types. 
+                             dc:abstract """IVOA kindly provides various data and object types, but very little is availble about workflow types. 
                                 It is possible to combine function types (e.g. https://fno.io) with data types. 
                                 In this ontology we define supporting types, our own versions of some of the generic types, 
                                 and anything else needed to descrie Astrophysical Analysis Workflows.
                                 Please refer to https://odahub.io/docs/guide-ontology/ for instructions on how to contribute.""" ;
-                             <http://purl.org/dc/elements/1.1/creator> <https://github.com/andriineronov> ,
-                                                                       <https://github.com/burnout87> ,
-                                                                       <https://github.com/dsavchenko> ,
-                                                                       <https://github.com/volodymyrss> ;
-                             <http://purl.org/dc/elements/1.1/description> """Astrophysical Workflows, and corresponding input-output data types (Data Products, Input Parameters, etc) 
+                             dc:creator <https://github.com/andriineronov> ,
+                                        <https://github.com/burnout87> ,
+                                        <https://github.com/dsavchenko> ,
+                                        <https://github.com/volodymyrss> ;
+                             dc:description """Astrophysical Workflows, and corresponding input-output data types (Data Products, Input Parameters, etc) 
                                 used in MMODA project (https://www.astro.unige.ch/mmoda/, https://odahub.io/)""" ;
-                             <http://purl.org/dc/elements/1.1/source> "https://github.com/volodymyrss/hugo-odahub.git" ;
-                             <http://purl.org/dc/elements/1.1/title> "MMODA Astrophysical Workflow Ontology" ,
-                                                                     "MMODA Astrophysical Workflows and Data Products" ;
-                             <http://purl.org/vocab/vann/preferredNamespaceUri> "http://odahub.io/ontology" ;
+                             dc:source "https://github.com/volodymyrss/hugo-odahub.git" ;
+                             dc:title "MMODA Astrophysical Workflow Ontology" ,
+                                      "MMODA Astrophysical Workflows and Data Products" ;
+                             vann:preferredNamespaceUri "http://odahub.io/ontology" ;
                              owl:versionIRI "0.1.1" ;
-                             <http://xmlns.com/foaf/0.1/logo> <https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png> .
+                             foaf:logo <https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png> .
 
 #################################################################
 #    Annotation properties
@@ -86,27 +58,27 @@
 
 
 ###  http://purl.org/dc/elements/1.1/abstract
-<http://purl.org/dc/elements/1.1/abstract> rdf:type owl:AnnotationProperty .
+dc:abstract rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/creator
-<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+dc:creator rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/description
-<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+dc:description rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/source
-<http://purl.org/dc/elements/1.1/source> rdf:type owl:AnnotationProperty .
+dc:source rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/title
-<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+dc:title rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
-<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2002/07/owl#versionIRI
@@ -114,7 +86,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/logo
-<http://xmlns.com/foaf/0.1/logo> rdf:type owl:AnnotationProperty .
+foaf:logo rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -252,7 +224,8 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 
 ###  http://odahub.io/ontology#Boolean
 :Boolean rdf:type owl:Class ;
-         rdfs:subClassOf :WorkflowParameter ,
+         rdfs:subClassOf :ParameterProduct ,
+                         :WorkflowParameter ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :value ;
                            owl:allValuesFrom xsd:boolean
@@ -283,7 +256,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 ###  http://odahub.io/ontology#DiscoveryWorkflow
 :DiscoveryWorkflow rdf:type owl:Class ;
                    rdfs:subClassOf :Workflow ;
-                   <http://purl.org/dc/elements/1.1/description> "workflow which takes some dataset (crucially, unavailable at the time of the Workflow publishing) and produces some Evidence or a Decision" ;
+                   dc:description "workflow which takes some dataset (crucially, unavailable at the time of the Workflow publishing) and produces some Evidence or a Decision" ;
                    rdfs:label "DiscoveryWorkflow" .
 
 
@@ -354,6 +327,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 ###  http://odahub.io/ontology#Float
 :Float rdf:type owl:Class ;
        rdfs:subClassOf :NumericParameter ,
+                       :ParameterProduct ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :value ;
                          owl:allValuesFrom xsd:float
@@ -456,6 +430,7 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 ###  http://odahub.io/ontology#Integer
 :Integer rdf:type owl:Class ;
          rdfs:subClassOf :NumericParameter ,
+                         :ParameterProduct ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :value ;
                            owl:allValuesFrom xsd:integer
@@ -531,6 +506,11 @@ owl:versionIRI rdf:type owl:AnnotationProperty .
 ###  http://odahub.io/ontology#ParameterFormat
 :ParameterFormat rdf:type owl:Class ;
                  rdfs:subClassOf owl:Thing .
+
+
+###  http://odahub.io/ontology#ParameterProduct
+:ParameterProduct rdf:type owl:Class ;
+                  rdfs:subClassOf :DataProduct .
 
 
 ###  http://odahub.io/ontology#Percentage
@@ -682,7 +662,8 @@ Subclasses may have other ways to express the content.""" ;
 
 ###  http://odahub.io/ontology#String
 :String rdf:type owl:Class ;
-        rdfs:subClassOf :WorkflowParameter .
+        rdfs:subClassOf :ParameterProduct ,
+                        :WorkflowParameter .
 
 
 ###  http://odahub.io/ontology#TeV
@@ -701,7 +682,8 @@ Subclasses may have other ways to express the content.""" ;
 
 ###  http://odahub.io/ontology#TimeInstant
 :TimeInstant rdf:type owl:Class ;
-             rdfs:subClassOf :Quantity ,
+             rdfs:subClassOf :ParameterProduct ,
+                             :Quantity ,
                              :WorkflowParameter ;
              rdfs:label "TimeInstant" .
 
@@ -1005,7 +987,7 @@ Subclasses may have other ways to express the content.""" ;
 #    Annotations
 #################################################################
 
-: <http://purl.org/dc/elements/1.1/title> "MMODA Astrophysical Workflows and Data Products" .
+: dc:title "MMODA Astrophysical Workflows and Data Products" .
 
 
-###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
