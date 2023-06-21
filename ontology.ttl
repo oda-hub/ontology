@@ -205,6 +205,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 ###  http://odahub.io/ontology#AstrophysicalObject
 :AstrophysicalObject rdf:type owl:Class ;
+                     rdfs:subClassOf :String ;
                      rdfs:comment "Any Astrophysical object, possibly contained in space and/or time: Galaxy, Gamma-Ray Burst, Universe. Note that an object can be spatially or temporarily contained within another: e.g. a BlazarFlare is an episode of Blazar life, and a SunSpot is on the Sun." ;
                      rdfs:label "AstrophysicalObject" .
 
