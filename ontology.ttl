@@ -979,7 +979,7 @@ Subclasses may have other ways to express the content.""" ;
 ###  http://odahub.io/ontology/unit#nm
 <http://odahub.io/ontology/unit#nm> rdf:type owl:NamedIndividual ,
                                              <http://odahub.io/ontology/unit#PhotonUnit> ;
-                                    :symbol "eV"^^xsd:string .
+                                    :symbol "nm"^^xsd:string .
 
 
 ###  http://odahub.io/ontology/unit#hourangle_Hour
