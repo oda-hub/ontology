@@ -647,7 +647,7 @@ Subclasses may have other ways to express the content.""" ;
                           :ExpressedInUnit ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :has_unit ;
-                            owl:hasValue <http://odahub.io/ontology/unit#nM>
+                            owl:hasValue <http://odahub.io/ontology/unit#nm>
                           ] .
           rdfs:label "Wavelength" .
 
@@ -850,6 +850,11 @@ Subclasses may have other ways to express the content.""" ;
                                             rdfs:subClassOf <http://odahub.io/ontology/unit#Unit> .
 
 
+### http://odahub.io/ontology/unit#PhotonUnit
+<http://odahub.io/ontology/unit#PhotonUnit> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://odahub.io/ontology/unit#Unit> .
+
+
 ###  http://odahub.io/ontology/unit#TimeUnit
 <http://odahub.io/ontology/unit#TimeUnit> rdf:type owl:Class ;
                                           rdfs:subClassOf <http://odahub.io/ontology/unit#Unit> .
@@ -971,9 +976,9 @@ Subclasses may have other ways to express the content.""" ;
                                     :symbol "eV"^^xsd:string .
 
 
-###  http://odahub.io/ontology/unit#nM
-<http://odahub.io/ontology/unit#nM> rdf:type owl:NamedIndividual ,
-                                             <http://odahub.io/ontology/unit#EnergyUnit> ;
+###  http://odahub.io/ontology/unit#nm
+<http://odahub.io/ontology/unit#nm> rdf:type owl:NamedIndividual ,
+                                             <http://odahub.io/ontology/unit#PhotonUnit> ;
                                     :symbol "eV"^^xsd:string .
 
 
