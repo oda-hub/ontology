@@ -640,6 +640,17 @@ Subclasses may have other ways to express the content.""" ;
 :Spectrum rdf:type owl:Class ;
           rdfs:subClassOf :DataProduct .
 
+###  http://odahub.io/ontology#Wavelength
+:Wavelength rdf:type owl:Class ;
+          rdfs:subClassOf :ParameterProduct ,
+                          :Quantity ,
+                          :ExpressedInUnit ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :has_unit ;
+                            owl:hasValue <http://odahub.io/ontology/unit#nM>
+                          ] .
+          rdfs:label "Wavelength" .
+
 
 ###  http://odahub.io/ontology#StartTime
 :StartTime rdf:type owl:Class ;
@@ -956,6 +967,12 @@ Subclasses may have other ways to express the content.""" ;
 
 ###  http://odahub.io/ontology/unit#eV
 <http://odahub.io/ontology/unit#eV> rdf:type owl:NamedIndividual ,
+                                             <http://odahub.io/ontology/unit#EnergyUnit> ;
+                                    :symbol "eV"^^xsd:string .
+
+
+###  http://odahub.io/ontology/unit#nM
+<http://odahub.io/ontology/unit#nM> rdf:type owl:NamedIndividual ,
                                              <http://odahub.io/ontology/unit#EnergyUnit> ;
                                     :symbol "eV"^^xsd:string .
 
