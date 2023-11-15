@@ -642,7 +642,7 @@ Subclasses may have other ways to express the content.""" ;
 
 ###  http://odahub.io/ontology#Wavelength
 :Wavelength rdf:type owl:Class ;
-          rdfs:subClassOf :ParameterProduct ,
+          rdfs:subClassOf :WorkflowParameter ,
                           :Quantity ,
                           :ExpressedInUnit ,
                           [ rdf:type owl:Restriction ;
