@@ -8,7 +8,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@base <http://odahub.io/ontology> .
+@base <http://odahub.io/ontology#> .
 
 <http://odahub.io/ontology> rdf:type owl:Ontology ;
                              dc:abstract """IVOA kindly provides various data and object types, but very little is availble about workflow types. 
@@ -203,6 +203,15 @@ foaf:logo rdf:type owl:AnnotationProperty .
                               :arcsec .
 
 
+###  http://odahub.io/ontology#Angstrom
+:Angstrom rdf:type owl:Class ;
+          rdfs:subClassOf :ExpressedInUnit ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :has_unit ;
+                            owl:hasValue <http://odahub.io/ontology/unit#Angstrom>
+                          ] .
+
+
 ###  http://odahub.io/ontology#AstrophysicalObject
 :AstrophysicalObject rdf:type owl:Class ;
                      rdfs:subClassOf :String ;
@@ -259,6 +268,41 @@ foaf:logo rdf:type owl:AnnotationProperty .
                    rdfs:subClassOf :Workflow ;
                    dc:description "workflow which takes some dataset (crucially, unavailable at the time of the Workflow publishing) and produces some Evidence or a Decision" ;
                    rdfs:label "DiscoveryWorkflow" .
+
+
+###  http://odahub.io/ontology#Distance
+:Distance rdf:type owl:Class ;
+          rdfs:subClassOf :Length .
+
+
+###  http://odahub.io/ontology#Distance_Mpc
+:Distance_Mpc rdf:type owl:Class ;
+              rdfs:subClassOf :Distance ,
+                              :Mpc .
+
+
+###  http://odahub.io/ontology#Distance_km
+:Distance_km rdf:type owl:Class ;
+             rdfs:subClassOf :Distance ,
+                             :km .
+
+
+###  http://odahub.io/ontology#Distance_kpc
+:Distance_kpc rdf:type owl:Class ;
+              rdfs:subClassOf :Distance ,
+                              :kpc .
+
+
+###  http://odahub.io/ontology#Distance_m
+:Distance_m rdf:type owl:Class ;
+            rdfs:subClassOf :Distance ,
+                            :m .
+
+
+###  http://odahub.io/ontology#Distance_pc
+:Distance_pc rdf:type owl:Class ;
+             rdfs:subClassOf :Distance ,
+                             :pc .
 
 
 ###  http://odahub.io/ontology#EndTime
@@ -454,6 +498,15 @@ foaf:logo rdf:type owl:AnnotationProperty .
                             ] .
 
 
+###  http://odahub.io/ontology#Length
+:Length rdf:type owl:Class ;
+        rdfs:subClassOf :Float ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :has_unit ;
+                          owl:someValuesFrom <http://odahub.io/ontology/unit#LengthUnit>
+                        ] .
+
+
 ###  http://odahub.io/ontology#LightCurve
 :LightCurve rdf:type owl:Class ;
             rdfs:subClassOf :DataProduct ,
@@ -476,6 +529,15 @@ foaf:logo rdf:type owl:AnnotationProperty .
                      [ rdf:type owl:Restriction ;
                        owl:onProperty :has_unit ;
                        owl:hasValue <http://odahub.io/ontology/unit#MeV>
+                     ] .
+
+
+###  http://odahub.io/ontology#Mpc
+:Mpc rdf:type owl:Class ;
+     rdfs:subClassOf :ExpressedInUnit ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :has_unit ;
+                       owl:hasValue <http://odahub.io/ontology/unit#Mpc>
                      ] .
 
 
@@ -640,17 +702,6 @@ Subclasses may have other ways to express the content.""" ;
 :Spectrum rdf:type owl:Class ;
           rdfs:subClassOf :DataProduct .
 
-###  http://odahub.io/ontology#Wavelength
-:Wavelength rdf:type owl:Class ;
-          rdfs:subClassOf :WorkflowParameter ,
-                          :Quantity ,
-                          :ExpressedInUnit ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :has_unit ;
-                            owl:hasValue <http://odahub.io/ontology/unit#nm>
-                          ] ;
-          rdfs:label "Wavelength" .
-
 
 ###  http://odahub.io/ontology#StartTime
 :StartTime rdf:type owl:Class ;
@@ -766,6 +817,37 @@ Subclasses may have other ways to express the content.""" ;
                             "v" .
 
 
+###  http://odahub.io/ontology#Wavelength
+:Wavelength rdf:type owl:Class ;
+            rdfs:subClassOf :Length ,
+                            :Quantity ;
+            rdfs:label "Wavelength" .
+
+
+###  http://odahub.io/ontology#Wavelength_A
+:Wavelength_A rdf:type owl:Class ;
+              rdfs:subClassOf :Angstrom ,
+                              :Wavelength .
+
+
+###  http://odahub.io/ontology#Wavelength_m
+:Wavelength_m rdf:type owl:Class ;
+              rdfs:subClassOf :Wavelength ,
+                              :m .
+
+
+###  http://odahub.io/ontology#Wavelength_micron
+:Wavelength_micron rdf:type owl:Class ;
+                   rdfs:subClassOf :Wavelength ,
+                                   :micron .
+
+
+###  http://odahub.io/ontology#Wavelength_nm
+:Wavelength_nm rdf:type owl:Class ;
+               rdfs:subClassOf :Wavelength ,
+                               :nm .
+
+
 ###  http://odahub.io/ontology#Workflow
 :Workflow rdf:type owl:Class ;
           rdfs:subClassOf owl:Thing ;
@@ -831,6 +913,60 @@ Subclasses may have other ways to express the content.""" ;
                      ] .
 
 
+###  http://odahub.io/ontology#km
+:km rdf:type owl:Class ;
+    rdfs:subClassOf :ExpressedInUnit ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty :has_unit ;
+                      owl:hasValue <http://odahub.io/ontology/unit#km>
+                    ] .
+
+
+###  http://odahub.io/ontology#kpc
+:kpc rdf:type owl:Class ;
+     rdfs:subClassOf :ExpressedInUnit ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :has_unit ;
+                       owl:hasValue <http://odahub.io/ontology/unit#kpc>
+                     ] .
+
+
+###  http://odahub.io/ontology#m
+:m rdf:type owl:Class ;
+   rdfs:subClassOf :ExpressedInUnit ,
+                   [ rdf:type owl:Restriction ;
+                     owl:onProperty :has_unit ;
+                     owl:hasValue <http://odahub.io/ontology/unit#m>
+                   ] .
+
+
+###  http://odahub.io/ontology#micron
+:micron rdf:type owl:Class ;
+        rdfs:subClassOf :ExpressedInUnit ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :has_unit ;
+                          owl:hasValue <http://odahub.io/ontology/unit#micron>
+                        ] .
+
+
+###  http://odahub.io/ontology#nm
+:nm rdf:type owl:Class ;
+    rdfs:subClassOf :ExpressedInUnit ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty :has_unit ;
+                      owl:hasValue <http://odahub.io/ontology/unit#nm>
+                    ] .
+
+
+###  http://odahub.io/ontology#pc
+:pc rdf:type owl:Class ;
+    rdfs:subClassOf :ExpressedInUnit ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty :has_unit ;
+                      owl:hasValue <http://odahub.io/ontology/unit#pc>
+                    ] .
+
+
 ###  http://odahub.io/ontology#second
 :second rdf:type owl:Class ;
         rdfs:subClassOf :ExpressedInUnit ,
@@ -850,8 +986,8 @@ Subclasses may have other ways to express the content.""" ;
                                             rdfs:subClassOf <http://odahub.io/ontology/unit#Unit> .
 
 
-### http://odahub.io/ontology/unit#PhotonUnit
-<http://odahub.io/ontology/unit#PhotonUnit> rdf:type owl:Class ;
+###  http://odahub.io/ontology/unit#LengthUnit
+<http://odahub.io/ontology/unit#LengthUnit> rdf:type owl:Class ;
                                             rdfs:subClassOf <http://odahub.io/ontology/unit#Unit> .
 
 
@@ -877,133 +1013,174 @@ Subclasses may have other ways to express the content.""" ;
 ###  http://odahub.io/ontology#ISOT
 :ISOT rdf:type owl:NamedIndividual ,
                :TimeFormat ;
-      :symbol "isot"^^xsd:string .
+      :symbol "isot" .
 
 
 ###  http://odahub.io/ontology#MJD
 :MJD rdf:type owl:NamedIndividual ,
               :TimeFormat ;
-     :symbol "mjd"^^xsd:string .
+     :symbol "mjd" .
+
+
+###  http://odahub.io/ontology/unit#Angstrom
+<http://odahub.io/ontology/unit#Angstrom> rdf:type owl:NamedIndividual ,
+                                                   <http://odahub.io/ontology/unit#LengthUnit> .
 
 
 ###  http://odahub.io/ontology/unit#Day
 <http://odahub.io/ontology/unit#Day> rdf:type owl:NamedIndividual ,
                                               <http://odahub.io/ontology/unit#TimeUnit> ;
-                                     :symbol "day"^^xsd:string .
+                                     :symbol "day" .
 
 
 ###  http://odahub.io/ontology/unit#Degree
 <http://odahub.io/ontology/unit#Degree> rdf:type owl:NamedIndividual ,
                                                  <http://odahub.io/ontology/unit#AngleUnit> ;
-                                        :symbol "deg"^^xsd:string .
+                                        :symbol "deg" .
 
 
 ###  http://odahub.io/ontology/unit#GHz
 <http://odahub.io/ontology/unit#GHz> rdf:type owl:NamedIndividual ,
                                               <http://odahub.io/ontology/unit#EnergyUnit> ;
-                                     :symbol "GHz"^^xsd:string .
+                                     :symbol "GHz" .
 
 
 ###  http://odahub.io/ontology/unit#GeV
 <http://odahub.io/ontology/unit#GeV> rdf:type owl:NamedIndividual ,
                                               <http://odahub.io/ontology/unit#EnergyUnit> ;
-                                     :symbol "GeV"^^xsd:string .
+                                     :symbol "GeV" .
 
 
 ###  http://odahub.io/ontology/unit#Hour
 <http://odahub.io/ontology/unit#Hour> rdf:type owl:NamedIndividual ,
                                                <http://odahub.io/ontology/unit#TimeUnit> ;
-                                      :symbol "hour"^^xsd:string .
+                                      :symbol "hour" .
 
 
 ###  http://odahub.io/ontology/unit#Hz
 <http://odahub.io/ontology/unit#Hz> rdf:type owl:NamedIndividual ,
                                              <http://odahub.io/ontology/unit#EnergyUnit> ;
-                                    :symbol "Hz"^^xsd:string .
+                                    :symbol "Hz" .
 
 
 ###  http://odahub.io/ontology/unit#MHz
 <http://odahub.io/ontology/unit#MHz> rdf:type owl:NamedIndividual ,
                                               <http://odahub.io/ontology/unit#EnergyUnit> ;
-                                     :symbol "MHz"^^xsd:string .
+                                     :symbol "MHz" .
 
 
 ###  http://odahub.io/ontology/unit#MeV
 <http://odahub.io/ontology/unit#MeV> rdf:type owl:NamedIndividual ,
                                               <http://odahub.io/ontology/unit#EnergyUnit> ;
-                                     :symbol "MeV"^^xsd:string .
+                                     :symbol "MeV" .
 
 
 ###  http://odahub.io/ontology/unit#Minute
 <http://odahub.io/ontology/unit#Minute> rdf:type owl:NamedIndividual ,
                                                  <http://odahub.io/ontology/unit#TimeUnit> ;
-                                        :symbol "m"^^xsd:string .
+                                        :symbol "m" .
+
+
+###  http://odahub.io/ontology/unit#Mpc
+<http://odahub.io/ontology/unit#Mpc> rdf:type owl:NamedIndividual ,
+                                              <http://odahub.io/ontology/unit#LengthUnit> ;
+                                     :symbol "Mpc" .
 
 
 ###  http://odahub.io/ontology/unit#Radian
 <http://odahub.io/ontology/unit#Radian> rdf:type owl:NamedIndividual ,
                                                  <http://odahub.io/ontology/unit#AngleUnit> ;
-                                        :symbol "rad"^^xsd:string .
+                                        :symbol "rad" .
 
 
 ###  http://odahub.io/ontology/unit#Second
 <http://odahub.io/ontology/unit#Second> rdf:type owl:NamedIndividual ,
                                                  <http://odahub.io/ontology/unit#TimeUnit> ;
-                                        :symbol "s"^^xsd:string .
+                                        :symbol "s" .
 
 
 ###  http://odahub.io/ontology/unit#TeV
 <http://odahub.io/ontology/unit#TeV> rdf:type owl:NamedIndividual ,
                                               <http://odahub.io/ontology/unit#EnergyUnit> ;
-                                     :symbol "TeV"^^xsd:string .
+                                     :symbol "TeV" .
 
 
 ###  http://odahub.io/ontology/unit#arcmin
 <http://odahub.io/ontology/unit#arcmin> rdf:type owl:NamedIndividual ,
                                                  <http://odahub.io/ontology/unit#AngleUnit> ;
-                                        :symbol "arcmin"^^xsd:string .
+                                        :symbol "arcmin" .
 
 
 ###  http://odahub.io/ontology/unit#arcsec
 <http://odahub.io/ontology/unit#arcsec> rdf:type owl:NamedIndividual ,
                                                  <http://odahub.io/ontology/unit#AngleUnit> ;
-                                        :symbol "arcsec"^^xsd:string .
+                                        :symbol "arcsec" .
 
 
 ###  http://odahub.io/ontology/unit#eV
 <http://odahub.io/ontology/unit#eV> rdf:type owl:NamedIndividual ,
                                              <http://odahub.io/ontology/unit#EnergyUnit> ;
-                                    :symbol "eV"^^xsd:string .
-
-
-###  http://odahub.io/ontology/unit#nm
-<http://odahub.io/ontology/unit#nm> rdf:type owl:NamedIndividual ,
-                                             <http://odahub.io/ontology/unit#PhotonUnit> ;
-                                    :symbol "nm"^^xsd:string .
+                                    :symbol "eV" .
 
 
 ###  http://odahub.io/ontology/unit#hourangle_Hour
 <http://odahub.io/ontology/unit#hourangle_Hour> rdf:type owl:NamedIndividual ,
                                                          <http://odahub.io/ontology/unit#AngleUnit> ;
-                                                :symbol "h"^^xsd:string .
+                                                :symbol "h" .
 
 
 ###  http://odahub.io/ontology/unit#hourangle_Minute
 <http://odahub.io/ontology/unit#hourangle_Minute> rdf:type owl:NamedIndividual ,
                                                            <http://odahub.io/ontology/unit#AngleUnit> ;
-                                                  :symbol "m"^^xsd:string .
+                                                  :symbol "m" .
 
 
 ###  http://odahub.io/ontology/unit#hourangle_Second
 <http://odahub.io/ontology/unit#hourangle_Second> rdf:type owl:NamedIndividual ,
                                                            <http://odahub.io/ontology/unit#AngleUnit> ;
-                                                  :symbol "s"^^xsd:string .
+                                                  :symbol "s" .
 
 
 ###  http://odahub.io/ontology/unit#keV
 <http://odahub.io/ontology/unit#keV> rdf:type owl:NamedIndividual ,
                                               <http://odahub.io/ontology/unit#EnergyUnit> ;
-                                     :symbol "keV"^^xsd:string .
+                                     :symbol "keV" .
+
+
+###  http://odahub.io/ontology/unit#km
+<http://odahub.io/ontology/unit#km> rdf:type owl:NamedIndividual ,
+                                             <http://odahub.io/ontology/unit#LengthUnit> ;
+                                    :symbol "km" .
+
+
+###  http://odahub.io/ontology/unit#kpc
+<http://odahub.io/ontology/unit#kpc> rdf:type owl:NamedIndividual ,
+                                              <http://odahub.io/ontology/unit#LengthUnit> ;
+                                     :symbol "kpc" .
+
+
+###  http://odahub.io/ontology/unit#m
+<http://odahub.io/ontology/unit#m> rdf:type owl:NamedIndividual ,
+                                            <http://odahub.io/ontology/unit#LengthUnit> ;
+                                   :symbol "m" .
+
+
+###  http://odahub.io/ontology/unit#micron
+<http://odahub.io/ontology/unit#micron> rdf:type owl:NamedIndividual ,
+                                                 <http://odahub.io/ontology/unit#LengthUnit> ;
+                                        :symbol "um" .
+
+
+###  http://odahub.io/ontology/unit#nm
+<http://odahub.io/ontology/unit#nm> rdf:type owl:NamedIndividual ,
+                                             <http://odahub.io/ontology/unit#LengthUnit> ;
+                                    :symbol "nm" .
+
+
+###  http://odahub.io/ontology/unit#pc
+<http://odahub.io/ontology/unit#pc> rdf:type owl:NamedIndividual ,
+                                             <http://odahub.io/ontology/unit#LengthUnit> ;
+                                    :symbol "pc" .
 
 
 #################################################################
@@ -1013,4 +1190,4 @@ Subclasses may have other ways to express the content.""" ;
 : dc:title "MMODA Astrophysical Workflows and Data Products" .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
