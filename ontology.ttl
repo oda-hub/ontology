@@ -648,7 +648,7 @@ Subclasses may have other ways to express the content.""" ;
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :has_unit ;
                             owl:hasValue <http://odahub.io/ontology/unit#nm>
-                          ] .
+                          ] ;
           rdfs:label "Wavelength" .
 
 
