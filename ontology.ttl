@@ -666,6 +666,10 @@ Subclasses may have other ways to express the content.""" ;
         rdfs:subClassOf :ParameterProduct ,
                         :WorkflowParameter .
 
+###  http://odahub.io/ontology#S3
+:S3 rdf:type owl:Class ;
+        rdfs:subClassOf :WorkflowParameter .
+
 
 ###  http://odahub.io/ontology#TeV
 :TeV rdf:type owl:Class ;
