@@ -36,10 +36,17 @@
 ###  http://odahub.io/ontology#allowed_value
 :allowed_value rdf:type owl:AnnotationProperty .
 
+###  http://odahub.io/ontology#uses_resource
+:uses_resource rdf:type owl:AnnotationProperty .
+
+###  http://odahub.io/ontology#storage_limit
+:storage_limit rdf:type owl:AnnotationProperty .
+
+###  http://odahub.io/ontology#compute_limit
+:compute_limit rdf:type owl:AnnotationProperty .
 
 ###  http://odahub.io/ontology#format
 :format rdf:type owl:AnnotationProperty .
-
 
 ###  http://odahub.io/ontology#lower_limit
 :lower_limit rdf:type owl:AnnotationProperty .
@@ -666,8 +673,8 @@ Subclasses may have other ways to express the content.""" ;
         rdfs:subClassOf :ParameterProduct ,
                         :WorkflowParameter .
 
-###  http://odahub.io/ontology#S3
-:S3 rdf:type owl:Class ;
+###  http://odahub.io/ontology#Resource
+:Resource rdf:type owl:Class ;
         rdfs:subClassOf :WorkflowParameter .
 
 
@@ -866,6 +873,17 @@ Subclasses may have other ways to express the content.""" ;
 :ISOT rdf:type owl:NamedIndividual ,
                :TimeFormat ;
       :symbol "isot"^^xsd:string .
+
+
+###  http://odahub.io/ontology#S3
+:S3 rdf:type owl:NamedIndividual ,
+               :Resource ;
+      :uses_resource "S3"^^xsd:string .
+
+###  http://odahub.io/ontology#CRBeamS3
+:CRBeamS3 rdf:type owl:NamedIndividual ,
+               :Resource ;
+      :uses_resource "S3"^^xsd:string .
 
 
 ###  http://odahub.io/ontology#MJD
