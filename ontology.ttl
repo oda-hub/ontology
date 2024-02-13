@@ -737,6 +737,12 @@ Subclasses may have other ways to express the content.""" ;
                                   :day .
 
 
+###  http://odahub.io/ontology#TimeIntervalHours
+:TimeIntervalHours rdf:type owl:Class ;
+                   rdfs:subClassOf :TimeInterval ,
+                                   :hour .
+
+
 ###  http://odahub.io/ontology#TimeIntervalSeconds
 :TimeIntervalSeconds rdf:type owl:Class ;
                      rdfs:subClassOf :TimeInterval ,
@@ -824,6 +830,15 @@ Subclasses may have other ways to express the content.""" ;
                       owl:onProperty :has_unit ;
                       owl:hasValue <http://odahub.io/ontology/unit#eV>
                     ] .
+
+
+###  http://odahub.io/ontology#hour
+:hour rdf:type owl:Class ;
+      rdfs:subClassOf :ExpressedInUnit ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :has_unit ;
+                        owl:hasValue <http://odahub.io/ontology/unit#Hour>
+                      ] .
 
 
 ###  http://odahub.io/ontology#keV
