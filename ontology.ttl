@@ -369,6 +369,16 @@ foaf:logo rdf:type owl:AnnotationProperty .
                  rdfs:subClassOf :NumericParameter .
 
 
+###  http://odahub.io/ontology#FileReference
+:FileReference rdf:type owl:Class ;
+               rdfs:subClassOf :String .
+
+
+###  http://odahub.io/ontology#FileURL
+:FileURL rdf:type owl:Class ;
+         rdfs:subClassOf :FileReference .
+
+
 ###  http://odahub.io/ontology#Float
 :Float rdf:type owl:Class ;
        rdfs:subClassOf :NumericParameter ,
@@ -564,6 +574,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
 ###  http://odahub.io/ontology#ODATextProduct
 :ODATextProduct rdf:type owl:Class ;
                 rdfs:subClassOf :DataProduct .
+
+
+###  http://odahub.io/ontology#POSIXPath
+:POSIXPath rdf:type owl:Class ;
+           rdfs:subClassOf :FileReference .
 
 
 ###  http://odahub.io/ontology#ParameterFormat
