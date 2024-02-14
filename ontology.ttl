@@ -1,6 +1,3 @@
-@prefix : <http://odahub.io/ontology#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix fno: <https://w3id.org/function/spec/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -22,12 +19,12 @@
                                         <https://github.com/volodymyrss> ;
                              dc:description """Astrophysical Workflows, and corresponding input-output data types (Data Products, Input Parameters, etc) 
                                 used in MMODA project (https://www.astro.unige.ch/mmoda/, https://odahub.io/)""" ;
-                             dc:source "https://github.com/volodymyrss/hugo-odahub.git" ;
-                             dc:title "MMODA Astrophysical Workflow Ontology" ,
-                                      "MMODA Astrophysical Workflows and Data Products" ;
-                             vann:preferredNamespaceUri "http://odahub.io/ontology" ;
-                             owl:versionIRI "0.1.2-1-g9821dcf" ;
-                             foaf:logo <https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png> .
+                             <http://purl.org/dc/elements/1.1/source> "https://github.com/volodymyrss/hugo-odahub.git" ;
+                             <http://purl.org/dc/elements/1.1/title> "MMODA Astrophysical Workflow Ontology" ,
+                                                                     "MMODA Astrophysical Workflows and Data Products" ;
+                             <http://purl.org/vocab/vann/preferredNamespaceUri> "http://odahub.io/ontology" ;
+                             owl:versionIRI "dev" ;
+                             <http://xmlns.com/foaf/0.1/logo> <https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png> .
 
 #################################################################
 #    Annotation properties
