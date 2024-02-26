@@ -22,12 +22,12 @@
                                         <https://github.com/volodymyrss> ;
                              dc:description """Astrophysical Workflows, and corresponding input-output data types (Data Products, Input Parameters, etc) 
                                 used in MMODA project (https://www.astro.unige.ch/mmoda/, https://odahub.io/)""" ;
-                             dc:source "https://github.com/volodymyrss/hugo-odahub.git" ;
-                             dc:title "MMODA Astrophysical Workflow Ontology" ,
-                                      "MMODA Astrophysical Workflows and Data Products" ;
-                             vann:preferredNamespaceUri "http://odahub.io/ontology" ;
-                             owl:versionIRI "0.1.2-1-g9821dcf" ;
-                             foaf:logo <https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png> .
+                             <http://purl.org/dc/elements/1.1/source> "https://github.com/volodymyrss/hugo-odahub.git" ;
+                             <http://purl.org/dc/elements/1.1/title> "MMODA Astrophysical Workflow Ontology" ,
+                                                                     "MMODA Astrophysical Workflows and Data Products" ;
+                             <http://purl.org/vocab/vann/preferredNamespaceUri> "http://odahub.io/ontology" ;
+                             owl:versionIRI "dev" ;
+                             <http://xmlns.com/foaf/0.1/logo> <https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png> .
 
 #################################################################
 #    Annotation properties
@@ -910,6 +910,11 @@ Subclasses may have other ways to express the content.""" ;
      :symbol "mjd" .
 
 
+###  http://odahub.io/ontology/unit#Angstrom
+<http://odahub.io/ontology/unit#Angstrom> rdf:type owl:NamedIndividual ,
+                                                   <http://odahub.io/ontology/unit#LengthUnit> .
+
+
 ###  http://odahub.io/ontology/unit#Day
 <http://odahub.io/ontology/unit#Day> rdf:type owl:NamedIndividual ,
                                               <http://odahub.io/ontology/unit#TimeUnit> ;
@@ -962,6 +967,12 @@ Subclasses may have other ways to express the content.""" ;
 <http://odahub.io/ontology/unit#Minute> rdf:type owl:NamedIndividual ,
                                                  <http://odahub.io/ontology/unit#TimeUnit> ;
                                         :symbol "m" .
+
+
+###  http://odahub.io/ontology/unit#Mpc
+<http://odahub.io/ontology/unit#Mpc> rdf:type owl:NamedIndividual ,
+                                              <http://odahub.io/ontology/unit#LengthUnit> ;
+                                     :symbol "Mpc" .
 
 
 ###  http://odahub.io/ontology/unit#Radian
@@ -1022,6 +1033,42 @@ Subclasses may have other ways to express the content.""" ;
 <http://odahub.io/ontology/unit#keV> rdf:type owl:NamedIndividual ,
                                               <http://odahub.io/ontology/unit#EnergyUnit> ;
                                      :symbol "keV" .
+
+
+###  http://odahub.io/ontology/unit#km
+<http://odahub.io/ontology/unit#km> rdf:type owl:NamedIndividual ,
+                                             <http://odahub.io/ontology/unit#LengthUnit> ;
+                                    :symbol "km" .
+
+
+###  http://odahub.io/ontology/unit#kpc
+<http://odahub.io/ontology/unit#kpc> rdf:type owl:NamedIndividual ,
+                                              <http://odahub.io/ontology/unit#LengthUnit> ;
+                                     :symbol "kpc" .
+
+
+###  http://odahub.io/ontology/unit#m
+<http://odahub.io/ontology/unit#m> rdf:type owl:NamedIndividual ,
+                                            <http://odahub.io/ontology/unit#LengthUnit> ;
+                                   :symbol "m" .
+
+
+###  http://odahub.io/ontology/unit#micron
+<http://odahub.io/ontology/unit#micron> rdf:type owl:NamedIndividual ,
+                                                 <http://odahub.io/ontology/unit#LengthUnit> ;
+                                        :symbol "um" .
+
+
+###  http://odahub.io/ontology/unit#nm
+<http://odahub.io/ontology/unit#nm> rdf:type owl:NamedIndividual ,
+                                             <http://odahub.io/ontology/unit#LengthUnit> ;
+                                    :symbol "nm" .
+
+
+###  http://odahub.io/ontology/unit#pc
+<http://odahub.io/ontology/unit#pc> rdf:type owl:NamedIndividual ,
+                                             <http://odahub.io/ontology/unit#LengthUnit> ;
+                                    :symbol "pc" .
 
 
 #################################################################
