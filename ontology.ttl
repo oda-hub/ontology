@@ -94,7 +94,8 @@ foaf:logo rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  http://odahub.io/ontology#accessMode
-:accessMode rdf:type owl:ObjectProperty .
+:accessMode rdf:type owl:ObjectProperty ;
+            rdfs:domain :StorageResource .
 
 
 ###  http://odahub.io/ontology#hasCoordinates
@@ -163,6 +164,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
          rdfs:subPropertyOf :isRequesting ;
          rdfs:domain :Workflow ;
          rdfs:range :Workflow .
+
+
+###  http://odahub.io/ontology#resourceBindingEnvVarName
+:resourceBindingEnvVarName rdf:type owl:ObjectProperty ;
+                           rdfs:domain :S3 .
 
 
 ###  http://odahub.io/ontology#usesResource
