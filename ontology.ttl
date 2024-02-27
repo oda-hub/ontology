@@ -171,6 +171,16 @@ foaf:logo rdf:type owl:AnnotationProperty .
                            rdfs:domain :S3 .
 
 
+###  http://odahub.io/ontology#usesOptionalResource
+:usesOptionalResource rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :usesResource .
+
+
+###  http://odahub.io/ontology#usesRequiredResource
+:usesRequiredResource rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :usesResource .
+
+
 ###  http://odahub.io/ontology#usesResource
 :usesResource rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf owl:topObjectProperty ;
