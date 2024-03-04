@@ -167,7 +167,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 
 ###  http://odahub.io/ontology#resourceBindingEnvVarName
-:resourceBindingEnvVarName rdf:type owl:ObjectProperty ;
+:resourceBindingEnvVarName rdf:type owl:DataProperty ;
                            rdfs:domain :Resource .
 
 
