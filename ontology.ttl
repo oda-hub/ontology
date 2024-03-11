@@ -95,6 +95,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 ###  http://odahub.io/ontology#accessMode
 :accessMode rdf:type owl:ObjectProperty ;
+            rdfs:range :StorageAccessType ;
             rdfs:domain :StorageResource .
 
 
@@ -167,8 +168,8 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 
 ###  http://odahub.io/ontology#resourceBindingEnvVarName
-:resourceBindingEnvVarName rdf:type owl:DataProperty ;
-                           rdfs:domain :StorageResource .
+:resourceBindingEnvVarName rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :Resource .
 
 
 ###  http://odahub.io/ontology#usesOptionalResource
@@ -611,6 +612,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
 ###  http://odahub.io/ontology#POSIXPath
 :POSIXPath rdf:type owl:Class ;
            rdfs:subClassOf :FileReference .
+
+
+###  http://odahub.io/ontology#StorageAccessType
+:StorageAccessType rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing .
 
 
 ###  http://odahub.io/ontology#ParameterFormat
@@ -1088,8 +1094,23 @@ Subclasses may have other ways to express the content.""" ;
 
 ###  http://odahub.io/ontology#CRBeamS3
 :CRBeamS3 rdf:type owl:NamedIndividual ,
-                   :S3 .
+                   :S3 ;
+     :accessMode :ReadAppend .
 
+###  http://odahub.io/ontology#ReadOnly
+:ReadOnly rdf:type owl:NamedIndividual ,
+               :StorageAccessType ;
+      :title "ReadOnly" .
+
+###  http://odahub.io/ontology#ReadWrite
+:ReadWrite rdf:type owl:NamedIndividual ,
+               :StorageAccessType ;
+      :title "ReadWrite" .
+
+###  http://odahub.io/ontology#ReadAppend
+:ReadAppend rdf:type owl:NamedIndividual ,
+               :StorageAccessType ;
+      :title "ReadAppend" .
 
 ###  http://odahub.io/ontology#ISOT
 :ISOT rdf:type owl:NamedIndividual ,
