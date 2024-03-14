@@ -93,6 +93,12 @@ foaf:logo rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+###  http://odahub.io/ontology#accessMode
+:accessMode rdf:type owl:ObjectProperty ;
+            rdfs:range :StorageAccessType ;
+            rdfs:domain :StorageResource .
+
+
 ###  http://odahub.io/ontology#hasCoordinates
 :hasCoordinates rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
@@ -159,6 +165,28 @@ foaf:logo rdf:type owl:AnnotationProperty .
          rdfs:subPropertyOf :isRequesting ;
          rdfs:domain :Workflow ;
          rdfs:range :Workflow .
+
+
+###  http://odahub.io/ontology#resourceBindingEnvVarName
+:resourceBindingEnvVarName rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :Resource .
+
+
+###  http://odahub.io/ontology#usesOptionalResource
+:usesOptionalResource rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :usesResource .
+
+
+###  http://odahub.io/ontology#usesRequiredResource
+:usesRequiredResource rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :usesResource .
+
+
+###  http://odahub.io/ontology#usesResource
+:usesResource rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Workflow ;
+              rdfs:range :Resource.
 
 
 #################################################################
@@ -240,6 +268,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
                            owl:onProperty :value ;
                            owl:allValuesFrom xsd:boolean
                          ] .
+
+
+###  http://odahub.io/ontology#ComputeResource
+:ComputeResource rdf:type owl:Class ;
+                 rdfs:subClassOf :Resource .
 
 
 ###  http://odahub.io/ontology#DataProduct
@@ -581,6 +614,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
            rdfs:subClassOf :FileReference .
 
 
+###  http://odahub.io/ontology#StorageAccessType
+:StorageAccessType rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing .
+
+
 ###  http://odahub.io/ontology#ParameterFormat
 :ParameterFormat rdf:type owl:Class ;
                  rdfs:subClassOf owl:Thing .
@@ -689,6 +727,10 @@ foaf:logo rdf:type owl:AnnotationProperty .
           rdfs:label "Quantity" .
 
 
+###  http://odahub.io/ontology#Resource
+:Resource rdf:type owl:Class .
+
+
 ###  http://odahub.io/ontology#RightAscension
 :RightAscension rdf:type owl:Class ;
                 rdfs:subClassOf :Angle ,
@@ -702,6 +744,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
                        rdfs:subClassOf :AngleDegrees ,
                                        :RightAscension ;
                        rdfs:label "RightAscensionDegrees" .
+
+
+###  http://odahub.io/ontology#S3
+:S3 rdf:type owl:Class ;
+    rdfs:subClassOf :StorageResource .
 
 
 ###  http://odahub.io/ontology#SkyCoordinates
@@ -736,6 +783,11 @@ Subclasses may have other ways to express the content.""" ;
 :StartTimeMJD rdf:type owl:Class ;
               rdfs:subClassOf :StartTime ,
                               :TimeInstantMJD .
+
+
+###  http://odahub.io/ontology#StorageResource
+:StorageResource rdf:type owl:Class ;
+                 rdfs:subClassOf :Resource .
 
 
 ###  http://odahub.io/ontology#String
@@ -1039,6 +1091,26 @@ Subclasses may have other ways to express the content.""" ;
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://odahub.io/ontology#CRBeamS3
+:CRBeamS3 rdf:type owl:NamedIndividual ,
+                   :S3 ;
+     :accessMode :ReadAppend .
+
+###  http://odahub.io/ontology#ReadOnly
+:ReadOnly rdf:type owl:NamedIndividual ,
+               :StorageAccessType ;
+      :title "ReadOnly" .
+
+###  http://odahub.io/ontology#ReadWrite
+:ReadWrite rdf:type owl:NamedIndividual ,
+               :StorageAccessType ;
+      :title "ReadWrite" .
+
+###  http://odahub.io/ontology#ReadAppend
+:ReadAppend rdf:type owl:NamedIndividual ,
+               :StorageAccessType ;
+      :title "ReadAppend" .
 
 ###  http://odahub.io/ontology#ISOT
 :ISOT rdf:type owl:NamedIndividual ,
