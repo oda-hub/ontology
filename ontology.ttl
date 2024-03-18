@@ -751,6 +751,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
     rdfs:subClassOf :StorageResource .
 
 
+###  http://odahub.io/ontology#LocalDB
+:LocalDB rdf:type owl:Class ;
+    rdfs:subClassOf :StorageResource .
+
+
 ###  http://odahub.io/ontology#SkyCoordinates
 :SkyCoordinates rdf:type owl:Class ;
                 rdfs:subClassOf :Quantity ,
