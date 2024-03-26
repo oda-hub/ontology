@@ -193,6 +193,17 @@ foaf:logo rdf:type owl:AnnotationProperty .
 #    Data properties
 #################################################################
 
+###  http://odahub.io/ontology#memory
+:memory rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty ;
+        rdfs:domain :Dask .
+
+
+###  http://odahub.io/ontology#n_workers
+:n_workers rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :Dask .
+
 ###  http://odahub.io/ontology#value
 :value rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf owl:topDataProperty ;
@@ -273,6 +284,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
 ###  http://odahub.io/ontology#ComputeResource
 :ComputeResource rdf:type owl:Class ;
                  rdfs:subClassOf :Resource .
+
+
+###  http://odahub.io/ontology#Dask
+:Dask rdf:type owl:Class ;
+      rdfs:subClassOf :ComputeResource .
 
 
 ###  http://odahub.io/ontology#DataProduct
