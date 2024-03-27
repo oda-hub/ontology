@@ -196,13 +196,13 @@ foaf:logo rdf:type owl:AnnotationProperty .
 ###  http://odahub.io/ontology#memory
 :memory rdf:type owl:DatatypeProperty ,
                  owl:FunctionalProperty ;
-        rdfs:domain :Dask .
+        rdfs:domain :ComputeResource .
 
 
-###  http://odahub.io/ontology#n_workers
-:n_workers rdf:type owl:DatatypeProperty ,
+###  http://odahub.io/ontology#n_processes
+:n_processes rdf:type owl:DatatypeProperty ,
                     owl:FunctionalProperty ;
-           rdfs:domain :Dask .
+           rdfs:domain :ComputeResource .
 
 ###  http://odahub.io/ontology#value
 :value rdf:type owl:DatatypeProperty ;
