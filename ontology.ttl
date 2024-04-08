@@ -194,7 +194,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  http://odahub.io/ontology#memory
-:memory rdf:type owl:DatatypeProperty ,
+:memory_per_process rdf:type owl:DatatypeProperty ,
                  owl:FunctionalProperty ;
         rdfs:domain :ComputeResource .
 
