@@ -816,6 +816,10 @@ Subclasses may have other ways to express the content.""" ;
         rdfs:subClassOf :ParameterProduct ,
                         :WorkflowParameter .
 
+###  http://odahub.io/ontology#LongString
+:LongString rdf:type owl:Class ;
+            rdfs:subClassOf :String .
+
 
 ###  http://odahub.io/ontology#TeV
 :TeV rdf:type owl:Class ;
