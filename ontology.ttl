@@ -167,6 +167,12 @@ foaf:logo rdf:type owl:AnnotationProperty .
          rdfs:range :Workflow .
 
 
+###  http://odahub.io/ontology#mount
+:mount rdf:type owl:DatatypeProperty ,
+              owl:FunctionalProperty ;
+       rdfs:domain :HTTPURLFile .
+
+
 ###  http://odahub.io/ontology#resourceBindingEnvVarName
 :resourceBindingEnvVarName rdf:type owl:DatatypeProperty ;
                            rdfs:domain :Resource .
@@ -764,6 +770,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 ###  http://odahub.io/ontology#S3
 :S3 rdf:type owl:Class ;
+    rdfs:subClassOf :StorageResource .
+
+
+###  http://odahub.io/ontology#HTTPURLFile
+:HTTPURLFile rdf:type owl:Class ;
     rdfs:subClassOf :StorageResource .
 
 
