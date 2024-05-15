@@ -195,6 +195,13 @@ foaf:logo rdf:type owl:AnnotationProperty .
               rdfs:range :Resource.
 
 
+###  http://odahub.io/ontology#oda_token_access
+:oda_token_access rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Workflow ;
+              rdfs:range :TokenAccessType.
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -638,6 +645,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 ###  http://odahub.io/ontology#StorageAccessType
 :StorageAccessType rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing .
+
+
+###  http://odahub.io/ontology#TokenAccessType
+:TokenAccessType rdf:type owl:Class ;
                  rdfs:subClassOf owl:Thing .
 
 
@@ -1138,6 +1150,11 @@ Subclasses may have other ways to express the content.""" ;
 :CRBeamS3 rdf:type owl:NamedIndividual ,
                    :S3 ;
      :accessMode :ReadAppend .
+
+###  http://odahub.io/ontology#InOdaContext
+:InOdaContext rdf:type owl:NamedIndividual ,
+               :TokenAccessType ;
+      :title "InOdaContext" .
 
 ###  http://odahub.io/ontology#ReadOnly
 :ReadOnly rdf:type owl:NamedIndividual ,
