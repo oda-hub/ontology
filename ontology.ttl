@@ -195,8 +195,8 @@ foaf:logo rdf:type owl:AnnotationProperty .
               rdfs:range :Resource.
 
 
-###  http://odahub.io/ontology#token_access
-:token_access rdf:type owl:ObjectProperty ;
+###  http://odahub.io/ontology#oda_token_access
+:oda_token_access rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf owl:topObjectProperty ;
               rdfs:domain :Workflow ;
               rdfs:range :TokenAccessType.
