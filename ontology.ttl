@@ -22,12 +22,12 @@
                                         <https://github.com/volodymyrss> ;
                              dc:description """Astrophysical Workflows, and corresponding input-output data types (Data Products, Input Parameters, etc) 
                                 used in MMODA project (https://www.astro.unige.ch/mmoda/, https://odahub.io/)""" ;
-                             <http://purl.org/dc/elements/1.1/source> "https://github.com/volodymyrss/hugo-odahub.git" ;
-                             <http://purl.org/dc/elements/1.1/title> "MMODA Astrophysical Workflow Ontology" ,
-                                                                     "MMODA Astrophysical Workflows and Data Products" ;
-                             <http://purl.org/vocab/vann/preferredNamespaceUri> "http://odahub.io/ontology" ;
+                             dc:source "https://github.com/volodymyrss/hugo-odahub.git" ;
+                             dc:title "MMODA Astrophysical Workflow Ontology" ,
+                                      "MMODA Astrophysical Workflows and Data Products" ;
+                             vann:preferredNamespaceUri "http://odahub.io/ontology" ;
                              owl:versionIRI "dev" ;
-                             <http://xmlns.com/foaf/0.1/logo> <https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png> .
+                             foaf:logo <https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png> .
 
 #################################################################
 #    Annotation properties
@@ -47,6 +47,10 @@
 
 ###  http://odahub.io/ontology#symbol
 :symbol rdf:type owl:AnnotationProperty .
+
+
+###  http://odahub.io/ontology#title
+:title rdf:type owl:AnnotationProperty .
 
 
 ###  http://odahub.io/ontology#unit
@@ -95,8 +99,8 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 ###  http://odahub.io/ontology#accessMode
 :accessMode rdf:type owl:ObjectProperty ;
-            rdfs:range :StorageAccessType ;
-            rdfs:domain :StorageResource .
+            rdfs:domain :StorageResource ;
+            rdfs:range :StorageAccessType .
 
 
 ###  http://odahub.io/ontology#hasCoordinates
@@ -167,17 +171,6 @@ foaf:logo rdf:type owl:AnnotationProperty .
          rdfs:range :Workflow .
 
 
-###  http://odahub.io/ontology#mount
-:mount rdf:type owl:DatatypeProperty ,
-              owl:FunctionalProperty ;
-       rdfs:domain :HTTPURLFile .
-
-
-###  http://odahub.io/ontology#resourceBindingEnvVarName
-:resourceBindingEnvVarName rdf:type owl:DatatypeProperty ;
-                           rdfs:domain :Resource .
-
-
 ###  http://odahub.io/ontology#usesOptionalResource
 :usesOptionalResource rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf :usesResource .
@@ -192,23 +185,35 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :usesResource rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf owl:topObjectProperty ;
               rdfs:domain :Workflow ;
-              rdfs:range :Resource.
+              rdfs:range :Resource .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://odahub.io/ontology#memory
+###  http://odahub.io/ontology#memory_per_process
 :memory_per_process rdf:type owl:DatatypeProperty ,
-                 owl:FunctionalProperty ;
-        rdfs:domain :ComputeResource .
+                             owl:FunctionalProperty ;
+                    rdfs:domain :ComputeResource .
+
+
+###  http://odahub.io/ontology#mount
+:mount rdf:type owl:DatatypeProperty ,
+                owl:FunctionalProperty ;
+       rdfs:domain :HTTPURLFile .
 
 
 ###  http://odahub.io/ontology#n_processes
 :n_processes rdf:type owl:DatatypeProperty ,
-                    owl:FunctionalProperty ;
-           rdfs:domain :ComputeResource .
+                      owl:FunctionalProperty ;
+             rdfs:domain :ComputeResource .
+
+
+###  http://odahub.io/ontology#resourceBindingEnvVarName
+:resourceBindingEnvVarName rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :Resource .
+
 
 ###  http://odahub.io/ontology#value
 :value rdf:type owl:DatatypeProperty ;
@@ -419,6 +424,37 @@ foaf:logo rdf:type owl:AnnotationProperty .
                             :keV .
 
 
+###  http://odahub.io/ontology#ExpressedInFormat
+:ExpressedInFormat rdf:type owl:Class ;
+                   rdfs:subClassOf :WorkflowParameter .
+
+
+###  http://odahub.io/ontology#ExpressedInISOT
+:ExpressedInISOT rdf:type owl:Class ;
+                 rdfs:subClassOf :ExpressedInFormat ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :has_format ;
+                                   owl:hasValue :ISOT
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :value ;
+                                   owl:allValuesFrom xsd:string
+                                 ] .
+
+
+###  http://odahub.io/ontology#ExpressedInMJD
+:ExpressedInMJD rdf:type owl:Class ;
+                rdfs:subClassOf :ExpressedInFormat ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :has_format ;
+                                  owl:hasValue :MJD
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :value ;
+                                  owl:allValuesFrom xsd:float
+                                ] .
+
+
 ###  http://odahub.io/ontology#ExpressedInUnit
 :ExpressedInUnit rdf:type owl:Class ;
                  rdfs:subClassOf :NumericParameter .
@@ -501,6 +537,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
                      ] .
 
 
+###  http://odahub.io/ontology#HTTPURLFile
+:HTTPURLFile rdf:type owl:Class ;
+             rdfs:subClassOf :StorageResource .
+
+
 ###  http://odahub.io/ontology#Hz
 :Hz rdf:type owl:Class ;
     rdfs:subClassOf :ExpressedInUnit ,
@@ -579,6 +620,16 @@ foaf:logo rdf:type owl:AnnotationProperty .
             rdfs:label "LightCurve" .
 
 
+###  http://odahub.io/ontology#LocalDB
+:LocalDB rdf:type owl:Class ;
+         rdfs:subClassOf :StorageResource .
+
+
+###  http://odahub.io/ontology#LongString
+:LongString rdf:type owl:Class ;
+            rdfs:subClassOf :String .
+
+
 ###  http://odahub.io/ontology#MHz
 :MHz rdf:type owl:Class ;
      rdfs:subClassOf :ExpressedInUnit ,
@@ -634,11 +685,6 @@ foaf:logo rdf:type owl:AnnotationProperty .
 ###  http://odahub.io/ontology#POSIXPath
 :POSIXPath rdf:type owl:Class ;
            rdfs:subClassOf :FileReference .
-
-
-###  http://odahub.io/ontology#StorageAccessType
-:StorageAccessType rdf:type owl:Class ;
-                 rdfs:subClassOf owl:Thing .
 
 
 ###  http://odahub.io/ontology#ParameterFormat
@@ -773,16 +819,6 @@ foaf:logo rdf:type owl:AnnotationProperty .
     rdfs:subClassOf :StorageResource .
 
 
-###  http://odahub.io/ontology#HTTPURLFile
-:HTTPURLFile rdf:type owl:Class ;
-    rdfs:subClassOf :StorageResource .
-
-
-###  http://odahub.io/ontology#LocalDB
-:LocalDB rdf:type owl:Class ;
-    rdfs:subClassOf :StorageResource .
-
-
 ###  http://odahub.io/ontology#SkyCoordinates
 :SkyCoordinates rdf:type owl:Class ;
                 rdfs:subClassOf :Quantity ,
@@ -817,6 +853,11 @@ Subclasses may have other ways to express the content.""" ;
                               :TimeInstantMJD .
 
 
+###  http://odahub.io/ontology#StorageAccessType
+:StorageAccessType rdf:type owl:Class ;
+                   rdfs:subClassOf owl:Thing .
+
+
 ###  http://odahub.io/ontology#StorageResource
 :StorageResource rdf:type owl:Class ;
                  rdfs:subClassOf :Resource .
@@ -826,14 +867,10 @@ Subclasses may have other ways to express the content.""" ;
 :String rdf:type owl:Class ;
         rdfs:subClassOf :ParameterProduct ,
                         :WorkflowParameter ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :value ;
-                         owl:allValuesFrom xsd:string
-                       ] .
-
-###  http://odahub.io/ontology#LongString
-:LongString rdf:type owl:Class ;
-            rdfs:subClassOf :String .
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :value ;
+                          owl:allValuesFrom xsd:string
+                        ] .
 
 
 ###  http://odahub.io/ontology#TeV
@@ -860,20 +897,14 @@ Subclasses may have other ways to express the content.""" ;
 
 ###  http://odahub.io/ontology#TimeInstantISOT
 :TimeInstantISOT rdf:type owl:Class ;
-                 rdfs:subClassOf :TimeInstant ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :has_format ;
-                                   owl:hasValue :ISOT
-                                 ] .
+                 rdfs:subClassOf :ExpressedInISOT ,
+                                 :TimeInstant .
 
 
 ###  http://odahub.io/ontology#TimeInstantMJD
 :TimeInstantMJD rdf:type owl:Class ;
-                rdfs:subClassOf :TimeInstant ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :has_format ;
-                                  owl:hasValue :MJD
-                                ] .
+                rdfs:subClassOf :ExpressedInMJD ,
+                                :TimeInstant .
 
 
 ###  http://odahub.io/ontology#TimeInterval
@@ -1135,22 +1166,8 @@ Subclasses may have other ways to express the content.""" ;
 ###  http://odahub.io/ontology#CRBeamS3
 :CRBeamS3 rdf:type owl:NamedIndividual ,
                    :S3 ;
-     :accessMode :ReadAppend .
+          :accessMode :ReadAppend .
 
-###  http://odahub.io/ontology#ReadOnly
-:ReadOnly rdf:type owl:NamedIndividual ,
-               :StorageAccessType ;
-      :title "ReadOnly" .
-
-###  http://odahub.io/ontology#ReadWrite
-:ReadWrite rdf:type owl:NamedIndividual ,
-               :StorageAccessType ;
-      :title "ReadWrite" .
-
-###  http://odahub.io/ontology#ReadAppend
-:ReadAppend rdf:type owl:NamedIndividual ,
-               :StorageAccessType ;
-      :title "ReadAppend" .
 
 ###  http://odahub.io/ontology#ISOT
 :ISOT rdf:type owl:NamedIndividual ,
@@ -1162,6 +1179,24 @@ Subclasses may have other ways to express the content.""" ;
 :MJD rdf:type owl:NamedIndividual ,
               :TimeFormat ;
      :symbol "mjd" .
+
+
+###  http://odahub.io/ontology#ReadAppend
+:ReadAppend rdf:type owl:NamedIndividual ,
+                     :StorageAccessType ;
+            :title "ReadAppend" .
+
+
+###  http://odahub.io/ontology#ReadOnly
+:ReadOnly rdf:type owl:NamedIndividual ,
+                   :StorageAccessType ;
+          :title "ReadOnly" .
+
+
+###  http://odahub.io/ontology#ReadWrite
+:ReadWrite rdf:type owl:NamedIndividual ,
+                    :StorageAccessType ;
+           :title "ReadWrite" .
 
 
 ###  http://odahub.io/ontology/unit#Angstrom
