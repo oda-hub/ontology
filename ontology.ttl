@@ -861,7 +861,6 @@ Subclasses may have other ways to express the content.""" ;
 ###  http://odahub.io/ontology#TimeInstantISOT
 :TimeInstantISOT rdf:type owl:Class ;
                  rdfs:subClassOf :TimeInstant ,
-                                 :String,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :has_format ;
                                    owl:hasValue :ISOT
@@ -871,7 +870,6 @@ Subclasses may have other ways to express the content.""" ;
 ###  http://odahub.io/ontology#TimeInstantMJD
 :TimeInstantMJD rdf:type owl:Class ;
                 rdfs:subClassOf :TimeInstant ,
-                                :Float,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :has_format ;
                                   owl:hasValue :MJD
