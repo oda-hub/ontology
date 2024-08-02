@@ -296,6 +296,9 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :ComputeResource rdf:type owl:Class ;
                  rdfs:subClassOf :Resource .
 
+###  http://odahub.io/ontology#SecretStorageResource
+:SecretStorageResource rdf:type owl:Class ;
+                 rdfs:subClassOf :Resource .
 
 ###  http://odahub.io/ontology#Dask
 :Dask rdf:type owl:Class ;
@@ -1172,6 +1175,12 @@ Subclasses may have other ways to express the content.""" ;
 :CRBeamS3 rdf:type owl:NamedIndividual ,
                    :S3 ;
           :accessMode :ReadAppend .
+
+
+###  http://odahub.io/ontology#SecretStorage
+:SecretStorage rdf:type owl:NamedIndividual ,
+                   :SecretStorageResource ;
+          :resourceBindingEnvVarName "ODA_SECRET_STORAGE" .
 
 
 ###  http://odahub.io/ontology#ISOT
