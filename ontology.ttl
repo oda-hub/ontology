@@ -713,6 +713,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
                             ] .
 
 
+###  http://odahub.io/ontology#PhosphorosFiltersTable
+:PhosphorosFiltersTable rdf:type owl:Class ;
+                        rdfs:subClassOf :StructuredParameter .
+
+
 ###  http://odahub.io/ontology#PhotometricBand
 :PhotometricBand rdf:type owl:Class ;
                  rdfs:subClassOf :String ,
@@ -818,14 +823,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :S3 rdf:type owl:Class ;
     rdfs:subClassOf :StorageResource .
 
-### http://odahub.io/ontology#StructuredParameter
-:StructuredParameter rdf:type owl:Class ;
-                     rdf:subClassOf :WorkflowParameter.
 
-### http://odahub.io/ontology#PhosphorosFiltersTable
-:PhosphorosFiltersTable rdf:type owl:Class ;
-                     rdf:subClassOf :StructuredParameter.
-                
 ###  http://odahub.io/ontology#SkyCoordinates
 :SkyCoordinates rdf:type owl:Class ;
                 rdfs:subClassOf :Quantity ,
@@ -878,6 +876,11 @@ Subclasses may have other ways to express the content.""" ;
                           owl:onProperty :value ;
                           owl:allValuesFrom xsd:string
                         ] .
+
+
+###  http://odahub.io/ontology#StructuredParameter
+:StructuredParameter rdf:type owl:Class ;
+                     rdfs:subClassOf :WorkflowParameter .
 
 
 ###  http://odahub.io/ontology#TeV
